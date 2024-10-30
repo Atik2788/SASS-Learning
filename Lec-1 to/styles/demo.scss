@@ -1,0 +1,91 @@
+// color variable declarations
+$heade-bgColor: #ffab73;
+$main-bgColor: #bef5fe;
+$footer-bgColor: #f6d7c2;
+
+//font size
+$para-fontSize: 15px;
+
+/* Borwser reset code */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+header{
+     background-color: $heade-bgColor;
+}
+
+// nav styling  in normal css*********
+// nav styling  in normal css*********
+/*  nav{
+    margin-top: 0;
+ }
+ nav ul{
+    list-style: none;
+    padding: 10px 0;
+ }
+ nav ul li{
+    display: inline-block;
+    margin: 0 15px;
+ }
+ nav ul li a{
+    display: inline-block;
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+    transition: .4s;
+    border-radius: 5px;
+ }
+
+ nav ul li a:hover{
+    background-color: black;
+ } */
+
+// nav styling  in SASS************
+// nav styling  in SASS************
+ nav{
+    margin-top: 0;
+
+    ul{
+        list-style: none;
+        padding: 10px 0;
+
+        li{
+            display: inline-block;
+            margin: 0 15px;
+
+            a{
+                display: inline-block;
+                color: white;
+                text-decoration: none;
+                padding: 10px;
+                transition: .4s;
+                border-radius: 5px;
+             }
+             
+             a:hover{
+                background-color: black;
+             }
+         }
+     }
+ }
+
+
+
+
+
+
+
+main{
+    background-color: $main-bgColor;
+}
+#about p{
+    font-size: $para-fontSize;
+
+}
+
+footer{
+    background-color: $footer-bgColor;
+}
