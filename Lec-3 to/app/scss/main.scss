@@ -1,0 +1,11 @@
+@forward "./base/reset";
+@forward "./base//typography";
+
+header{
+    background-color: bisque;
+    padding: 1rem
+}
+main{
+    background-color: #fbe1e1;
+    padding: 1rem;
+}
