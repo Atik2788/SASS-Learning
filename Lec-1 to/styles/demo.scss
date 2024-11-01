@@ -1,5 +1,5 @@
 // color variable declarations
-$heade-bgColor: #ffab73;
+$heade-bgColor: #6d4b18;
 $main-bgColor: #bef5fe;
 $footer-bgColor: #f6d7c2;
 
@@ -17,31 +17,21 @@ header{
      background-color: $heade-bgColor;
 }
 
-// nav styling  in normal css*********
-// nav styling  in normal css*********
-/*  nav{
-    margin-top: 0;
- }
- nav ul{
-    list-style: none;
-    padding: 10px 0;
- }
- nav ul li{
-    display: inline-block;
-    margin: 0 15px;
- }
- nav ul li a{
-    display: inline-block;
-    color: white;
-    text-decoration: none;
-    padding: 10px;
-    transition: .4s;
-    border-radius: 5px;
- }
 
- nav ul li a:hover{
-    background-color: black;
- } */
+@mixin para-style($size, $style){
+    font-size: $size;
+    text-align: $style;
+    margin: 10px 0;
+}
+
+#about p{
+    @include para-style(17px, left);
+}
+
+#education p{
+    @include para-style(10px, justify);
+}
+
 
 // nav styling  in SASS************
 // nav styling  in SASS************
@@ -74,15 +64,11 @@ header{
 
 
 
-
-
-
-
 main{
     background-color: $main-bgColor;
 }
 #about p{
-    font-size: $para-fontSize;
+    // font-size: $para-fontSize;
 
 }
 

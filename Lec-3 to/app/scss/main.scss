@@ -1,11 +1,13 @@
-@forward "./base/reset";
-@forward "./base//typography";
+@forward "./base/index";
+@use "./util/index" as variables;
+
 
 header{
-    background-color: bisque;
+    // background-color: index.$header_bg;
+    background-color: variables.$header_bg;
     padding: 1rem
 }
 main{
-    background-color: #fbe1e1;
+    background-color: variables.$main_bg;
     padding: 1rem;
 }
