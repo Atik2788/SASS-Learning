@@ -70,12 +70,12 @@ header{
     }
     @else{
         font-size: none;
-        color: rgb(214, 204, 64);
+        color: rgb(238, 11, 11);
     }
 }
 
 .p-text{
-    @include setFontSize(large)
+    @include setFontSize(lrge)
 }
 
 
