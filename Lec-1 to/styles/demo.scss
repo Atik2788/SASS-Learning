@@ -8,116 +8,173 @@ $footer-bgColor: #f6d7c2;
 $para-fontSize: 15px;
 
 /* Borwser reset code */
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-header{
-     background-color: $heade-bgColor;
+header {
+  background-color: $heade-bgColor;
 }
 
 // @extend   ********************************************
 // @extend   ********************************************
-.btn{
-    border: none;
-    padding: 5px 10px;
+.btn {
+  border: none;
+  padding: 5px 10px;
+  text-align: center;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.btn-download {
+  @extend .btn;
+  background-color: #3f8f9b;
+  border-radius: 20px;
+  color: white;
+}
+
+// @mixin   ********************************************
+// @mixin   ********************************************
+@mixin para-style($size, $style) {
+  font-size: $size;
+  text-align: $style;
+  margin: 10px 0;
+}
+
+#about p {
+  // @include para-style(17px, left);
+}
+
+#education p {
+  @include para-style(10px, justify);
+}
+
+// if else css ********************************************
+// if else css ********************************************
+
+@mixin setFontSize($value) {
+  @if $value == small {
+    font-size: 12px;
+    color: blue;
+  } @else if $value == medium {
+    font-size: 16px;
+    color: rgb(4, 255, 0);
+  } @else if $value == large {
+    font-size: 20px;
+    color: rgb(255, 0, 191);
+  } @else {
+    font-size: none;
+    color: rgb(238, 11, 11);
+  }
+}
+
+.p-text {
+  @include setFontSize(lrge);
+}
+
+// nesting ******************************************************
+// nesting ******************************************************
+nav {
+  margin-top: 0;
+
+  ul {
+    list-style: none;
+    padding: 10px 0;
+
+    li {
+      display: inline-block;
+      margin: 0 15px;
+
+      a {
+        display: inline-block;
+        color: white;
+        text-decoration: none;
+        padding: 10px;
+        transition: 0.4s;
+        border-radius: 5px;
+      }
+
+      a:hover {
+        background-color: black;
+      }
+    }
+  }
+}
+
+main {
+  background-color: $main-bgColor;
+}
+#about p {
+  // font-size: $para-fontSize;
+}
+
+footer {
+  background-color: $footer-bgColor;
+}
+
+// loop in SASS @for, @while ******************************************************
+// loop in SASS @for, @while ******************************************************
+
+[class*="col-"]{
+    float: left;
     text-align: center;
-    font-size: 1rem;
-    cursor: pointer;
+    background: #efeaeaa7;
+    margin: 5px;
 }
 
-.btn-download{
-    @extend .btn;
-    background-color: #3f8f9b;
-    border-radius: 20px;
-    color: white;
-}
+// 1 to 13 means it is stop before 13
+// 1 through 13 means it is stop after 13
+// @for $i from 1 to 13
+// @for $i from 1 through 12
 
-// @mixin   ********************************************
-// @mixin   ********************************************
-@mixin para-style($size, $style){
-    font-size: $size;
-    text-align: $style;
-    margin: 10px 0;
-}
-
-#about p{
-    // @include para-style(17px, left);
-}
-
-#education p{
-    @include para-style(10px, justify);
-}
-
-
-// if else css ********************************************
-// if else css ********************************************
-
-@mixin setFontSize($value){
-    @if $value == small{
-        font-size: 12px;
-        color: blue;
-    }
-    @else if $value == medium{
-        font-size: 16px;
-        color: rgb(4, 255, 0);
-    }
-    @else if $value == large {
-        font-size: 20px;
-        color: rgb(255, 0, 191);
-    }
-    @else{
-        font-size: none;
-        color: rgb(238, 11, 11);
-    }
-}
-
-.p-text{
-    @include setFontSize(lrge)
+@for $i from 1 through 12{
+    .col-#{$i} {width: 100% / 12 * $i}
 }
 
 
 
-// nesting ******************************************************
-// nesting ******************************************************
- nav{
-    margin-top: 0;
 
-    ul{
-        list-style: none;
-        padding: 10px 0;
-
-        li{
-            display: inline-block;
-            margin: 0 15px;
-
-            a{
-                display: inline-block;
-                color: white;
-                text-decoration: none;
-                padding: 10px;
-                transition: .4s;
-                border-radius: 5px;
-             }
-             
-             a:hover{
-                background-color: black;
-             }
-         }
-     }
- }
-
-
-
-main{
-    background-color: $main-bgColor;
+/* .col-1 {
+  width: 8.33%;
 }
-#about p{
-    // font-size: $para-fontSize;
+.col-2 {
+  width: 16.66%;
 }
+.col-3 {
+  width: 25%;
+}
+.col-4 {
+  width: 33.33%;
+}
+.col-5 {
+  width: 41.66%;
+}
+.col-6 {
+  width: 50%;
+}
+.col-7 {
+  width: 58.33%;
+}
+.col-8 {
+  width: 66.66%;
+}
+.col-9 {
+  width: 75%;
+}
+.col-10 {
+  width: 83.33%;
+}
+.col-11 {
+  width: 91.66%;
+}
+.col-12 {
+  width: 100%;
+} */
 
-footer{
-    background-color: $footer-bgColor;
+.row::after{
+    clear: both;
+    content: " ";
+    display: table;
 }
