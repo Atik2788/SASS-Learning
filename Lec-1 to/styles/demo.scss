@@ -1,4 +1,5 @@
-// color variable declarations
+// color variable declarations   *************************************************
+// color variable declarations   *************************************************
 $heade-bgColor: #6d4b18;
 $main-bgColor: #bef5fe;
 $footer-bgColor: #f6d7c2;
@@ -17,6 +18,8 @@ header{
      background-color: $heade-bgColor;
 }
 
+// @extend   ********************************************
+// @extend   ********************************************
 .btn{
     border: none;
     padding: 5px 10px;
@@ -32,6 +35,8 @@ header{
     color: white;
 }
 
+// @mixin   ********************************************
+// @mixin   ********************************************
 @mixin para-style($size, $style){
     font-size: $size;
     text-align: $style;
@@ -39,7 +44,7 @@ header{
 }
 
 #about p{
-    @include para-style(17px, left);
+    // @include para-style(17px, left);
 }
 
 #education p{
@@ -47,8 +52,36 @@ header{
 }
 
 
-// nav styling  in SASS************
-// nav styling  in SASS************
+// if else css ********************************************
+// if else css ********************************************
+
+@mixin setFontSize($value){
+    @if $value == small{
+        font-size: 12px;
+        color: blue;
+    }
+    @else if $value == medium{
+        font-size: 16px;
+        color: rgb(4, 255, 0);
+    }
+    @else if $value == large {
+        font-size: 20px;
+        color: rgb(255, 0, 191);
+    }
+    @else{
+        font-size: none;
+        color: rgb(214, 204, 64);
+    }
+}
+
+.p-text{
+    @include setFontSize(large)
+}
+
+
+
+// nesting ******************************************************
+// nesting ******************************************************
  nav{
     margin-top: 0;
 
@@ -83,7 +116,6 @@ main{
 }
 #about p{
     // font-size: $para-fontSize;
-
 }
 
 footer{
